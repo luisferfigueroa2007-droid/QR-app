@@ -1,8 +1,8 @@
 <div class="container">
-
+   Bienvenido {{ usuario }}
   <img class="logo" src="https://systemtec.com.co/helpdesk/_lib/img/usr__NM__menu_img__NM__avatar1.png">
-  <input type="text">
-  <input type="date">
-  <button  class="button-login">Iniciar sesión</button>
-
+  <input type="text" [(ngModel)]="usuario">
+  <input type="text" [(ngModel)]="password">
+  <button (click)="ingresar()" class="button-login">Iniciar sesión</button>
+   {{ mensajeError }}
 </div>
