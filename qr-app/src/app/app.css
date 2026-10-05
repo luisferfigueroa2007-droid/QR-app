@@ -1,23 +1,28 @@
-.button-login {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-}
-.button-login[disabled]{
-    background-color: gray;
+.container-page {
+    background-color: beige;
+    height: 500px;
+    width: 500px;
 }
 
-.container {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 150px;
+.hecho {
+    background-color: greenyellow;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-flex;
+}
+.sin-hacer{
+    background-color: rgb(236, 75, 11);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-flex;
 }
 
-.logo {
-    width: 200px;
-    height: 200px;
+.done{
+    text-decoration: line-through;
+}
+
+.tarea{
+    display: inline-flex;
 }

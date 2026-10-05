@@ -1,8 +1,19 @@
-<div class="container">
-   Bienvenido {{ usuario }}
-  <img class="logo" src="https://systemtec.com.co/helpdesk/_lib/img/usr__NM__menu_img__NM__avatar1.png">
-  <input type="text" [(ngModel)]="usuario">
-  <input type="text" [(ngModel)]="password">
-  <button (click)="ingresar()" class="button-login">Iniciar sesión</button>
-   {{ mensajeError }}
+<div class="container-page">
+    <h1>MIS TAREAS</h1>
+    <hr>
+    <input type="text" placeholder="coloca tu tarea" id="editor" [(ngModel)]="tareaNueva"/>
+    <button (click)="agregar()">Agregar</button>
+    <div class="lista-tareas" id="tareas">
+        @for(tarea of tareas; track tarea.id ){
+             <div class="tarea" [ngClass]="{'done':tarea.hecha}">
+                 {{ tarea.descripcion }}  
+             </div>
+             <div (click)="cambiarEstado(tarea.id)" [ngClass]="{'hecho':tarea.hecha, 'sin-hacer': !tarea.hecha }"></div>
+             <div (click)="eliminarTarea(tarea.id)">
+                <i class="fa-solid fa-trash"></i> 
+            </div> 
+             <br>
+            
+        }        
+    </div>
 </div>

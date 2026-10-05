@@ -1,26 +1,47 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+
 
 @Component({
-  imports: [RouterOutlet, FormsModule],
+  imports: [FormsModule, CommonModule],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
- usuario = "pepito"
- password = "123"
- mensajeError = ""
+    tareas:any = [
+      {
+        id: 1,
+        descripcion: "peinar el loro",
+        hecha: false,
+      },
+      {
+        id:2,
+        descripcion: "estudiar frances",
+        hecha: false,
+      },
+    ]
 
-   ingresar(){
-     if(this.usuario === "luis" && this.password === "123"){
-      alert("Bienvenido !!!");
-      window.location.href = "https://youtube.com";
-     }else{
-       this.mensajeError = "Ha ocurrido un error"
-     }
-   }
+    tareaNueva = ""
 
+    agregar(){
+       this.tareas.unshift(
+            {
+              descripcion: this.tareaNueva,
+              hecha: false
+            }
+       );
 
+       this.tareaNueva = ""   
+    }
+     
+    cambiarEstado(idAmodificar:any){
+      let tarea = this.tareas.find((task:any)=> task.id === idAmodificar)
+      tarea.hecha = !tarea.hecha;
+    }
+  
+    eliminarTarea(id:any){
+        this.tareas = this.tareas.filter((tar:any)=> tar.id !== id)
+    } 
 }
